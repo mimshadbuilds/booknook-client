@@ -2,11 +2,11 @@ import Link from "next/link";
 import { ArrowUpRight, BookOpen, FlaskConical, History, Palette, ToyBrick } from "lucide-react";
 
 const categories = [
-  { name: "Fiction", count: "142 titles", description: "Literary fiction, contemporary tales, mysteries and worlds to get lost in.", icon: BookOpen, tone: "bg-[#e8ede9] text-[#234b3c]" },
-  { name: "Science", count: "68 titles", description: "Ecology, astronomy, physics and natural history explorations.", icon: FlaskConical, tone: "bg-[#e2eaf1] text-[#2c5068]" },
-  { name: "History", count: "84 titles", description: "Biographies, social memory, archival letters and global accounts.", icon: History, tone: "bg-[#f2ece4] text-[#694e34]" },
-  { name: "Kids", count: "95 titles", description: "Picture books, primers, young readers and fairy tales.", icon: ToyBrick, tone: "bg-[#f8ede7] text-[#a45535]" },
-  { name: "Others", count: "53 titles", description: "Nature, art, practical guides and unexpected discoveries.", icon: Palette, tone: "bg-[#efece6] text-[#525f58]" },
+    { name: "Fiction", count: "142 titles", description: "Literary fiction, contemporary tales, mysteries and worlds to get lost in.", icon: BookOpen, tone: "bg-[#e8ede9] text-[#234b3c]" },
+    { name: "Science", count: "68 titles", description: "Ecology, astronomy, physics and natural history explorations.", icon: FlaskConical, tone: "bg-[#e2eaf1] text-[#2c5068]" },
+    { name: "History", count: "84 titles", description: "Biographies, social memory, archival letters and global accounts.", icon: History, tone: "bg-[#f2ece4] text-[#694e34]" },
+    { name: "Kids", count: "95 titles", description: "Picture books, primers, young readers and fairy tales.", icon: ToyBrick, tone: "bg-[#f8ede7] text-[#a45535]" },
+    { name: "Others", count: "53 titles", description: "Nature, art, practical guides and unexpected discoveries.", icon: Palette, tone: "bg-[#efece6] text-[#525f58]" },
 ];
 
 const CategoryPage = () => {

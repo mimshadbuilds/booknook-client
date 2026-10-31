@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Clock3, Sparkles } from "lucide-react";
-import { BookCard, type BookPreview } from "@/components/home/book-card";
+import { BooksCard, type IBooks } from "@/components/books/BooksCard";
 
-const books: BookPreview[] = [
+const books: IBooks[] = [
     { id: "klara-and-the-sun", title: "Klara and the Sun", author: "Kazuo Ishiguro", category: "Fiction", image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=85", copies: 2, shelf: "Shelf 03-A" },
     { id: "an-immense-world", title: "An Immense World", author: "Ed Yong", category: "Science", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=85", copies: 1, shelf: "Shelf 12-C" },
     { id: "warmth-of-other-suns", title: "The Warmth of Other Suns", author: "Isabel Wilkerson", category: "History", image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=85", copies: 3, shelf: "Shelf 08-B" },
@@ -24,7 +24,7 @@ const NewArrivalsPage = () => {
                     <div className="flex items-center gap-2 text-xs text-[#69736d]"><Clock3 className="size-4" /> Updated recently</div>
                 </div>
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 lg:gap-5">
-                    {books.map((book) => <BookCard key={book.id} book={book} />)}
+                    {books.map((book) => <BooksCard key={book.id} book={book} />)}
                     </div>
                 <div className="mt-9 flex justify-center"><Link href="/books" className="inline-flex items-center rounded-lg border border-[#c9d6cc] bg-transparent px-5 py-2 text-sm font-medium text-[#234b3c] transition-colors hover:bg-[#dce8df]">See All Books <ArrowRight className="ml-2 size-4" /></Link></div>
             </div>
