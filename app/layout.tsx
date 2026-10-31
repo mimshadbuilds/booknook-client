@@ -3,6 +3,8 @@ import { Manrope, Literata } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Toaster } from "@/components/ui/sonner"
+
 
 const fontmanrope = Manrope({
   subsets: ["latin"],
@@ -32,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <main className="pt-20">
         {children}
       </main>
+      <Toaster richColors />
       <Footer />
       </body>
     </html>
