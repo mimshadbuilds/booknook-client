@@ -76,7 +76,7 @@ const AddBookPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#fbf9f3] pb-16 pt-28 text-[#252d29]">
+        <div className="min-h-screen bg-[#fbf9f3] pb-16 pt-10 text-[#252d29]">
             <div className="mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
                 <div className="mb-8">
                     <div className="mb-5 flex items-center gap-2 text-sm text-[#68736c]">
