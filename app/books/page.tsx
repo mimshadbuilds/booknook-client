@@ -57,10 +57,9 @@ const filtered = () => {
         if (search.trim()) {
             const searchTerm = search.toLowerCase().trim();
 
-            result = result.filter(
-                (book) =>
-                    book.title.toLowerCase().includes(searchTerm) ||
-                    book.author.toLowerCase().includes(searchTerm)
+            result = result.filter(book =>
+                book.title.toLowerCase().includes(searchTerm) ||
+                book.author.toLowerCase().includes(searchTerm)
             );
         }
 
@@ -71,7 +70,7 @@ const filtered = () => {
         }
 
         if (available) {
-            result = result.filter((book) => book.copies > 0);
+            result = result.filter(book => book.copies > 0);
         }
 
         if (sortBy === "title-asc") {
@@ -212,8 +211,7 @@ const filtered = () => {
                                             isActive
                                                 ? "bg-[#234b3c] text-white"
                                                 : "bg-[#f0eee8] text-[#59685d] hover:bg-[#dce8df] hover:text-[#234b3c]"
-                                        }`}
-                                    >
+                                        }`}>
                                         {item}
                                     </button>
                                 );
@@ -238,29 +236,24 @@ const filtered = () => {
                         <span className="font-bold uppercase tracking-wider text-[#68736c]">
                             Shelf section:
                         </span>
-
                         <span className="font-bold text-[#234b3c]">
                             {category === "All Categories"
                                 ? "All Catalog Editions"
                                 : category}
                         </span>
-
                         {available && (
                             <span className="rounded-full bg-[#dce8df] px-2.5 py-1 font-semibold text-[#234b3c]">
                                 Available only
                             </span>
                         )}
-
                         {search && (
                             <span className="rounded-full bg-[#f6e5dc] px-2.5 py-1 font-semibold text-[#8d4d36]">
                                 Search: {search}
                             </span>
                         )}
                     </div>
-
                     <label className="flex items-center gap-2 text-xs font-semibold text-[#68736c]">
                         <span>Sort by</span>
-
                         <span className="relative">
                         <select
                             value={sortBy}
@@ -271,7 +264,7 @@ const filtered = () => {
                             <option value="title-desc">Title (Z–A)</option>
                         </select>
 
-                            <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#68736c]" />
+                            {/* <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#68736c]" /> */}
                         </span>
                     </label>
                 </div>
@@ -320,7 +313,6 @@ const filtered = () => {
                                             className="object-cover"
                                         />
                                     </div>
-
                                     <span
                                         className={`absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-bold shadow-sm backdrop-blur ${
                                             book.copies > 0
@@ -378,16 +370,13 @@ const filtered = () => {
                         <div className="mb-4 grid size-16 place-items-center rounded-full bg-[#dce8df] text-[#234b3c]">
                             <BookOpenCheck className="size-7" />
                         </div>
-
                         <h2 className="font-heading text-xl font-bold text-[#234b3c]">
                             No books found
                         </h2>
-
                         <p className="mt-2 max-w-sm text-sm leading-6 text-[#68736c]">
                             We couldn&apos;t find any books matching your search.
                             Try another title, author, or category.
                         </p>
-
                         {activeFilters && (
                             <Button
                                 type="button"
