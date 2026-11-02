@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Flame, TrendingUp } from "lucide-react";
-import { BooksCard, type IBooks } from "@/components/books/BooksCard";
+import { BooksCard, type IBooks } from "../books/BooksCard";
 
 const favorites: IBooks[] = [
     { id: "tomorrow-and-tomorrow", title: "Tomorrow, and Tomorrow, and Tomorrow", author: "Gabrielle Zevin", category: "Fiction", image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=85", copies: 2, borrows: 48 },
