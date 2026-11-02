@@ -1,6 +1,9 @@
+'use client'
 import Link from "next/link";
-import { ChevronDown, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 import Image from "next/image";
+import AuthUserPage from "./AuthUser";
+import { authClient } from "@/lib/auth-client";
 
 const links = [
   { label: "Home", href: "/", active: true },
@@ -11,6 +14,8 @@ const links = [
 ];
 
 export function Header() {
+  const { data: session } = authClient.useSession()
+  const user = session?.user;
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-[#e5e0d8] bg-[#fbf9f3]/95 backdrop-blur-md">
       <div className="relative mx-auto flex h-full max-w-[1320px] items-center justify-between gap-4 px-4 md:px-6 lg:px-12">
@@ -47,17 +52,17 @@ export function Header() {
           </span>
         </Link>
 
-        <div className="ml-auto flex items-center gap-2">
-          <Link href="/profile"
-            aria-label="My profile"
-            className="hidden size-10 items-center justify-center rounded-lg text-[#234b3c] transition-colors hover:bg-[#f0eee8] sm:inline-flex">
-            <UserRound className="size-[18px]" />
-          </Link>
-          <Link href="/signin"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#234b3c] px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#1b3b2f]">
-            Sign in
-            <ChevronDown className="size-4" />
-          </Link>
+        <div className="ml-auto flex justify-center items-center gap-2">
+          { !user && (
+            <Link href="/profile"
+              aria-label="My profile"
+              className="hidden size-10 items-center justify-center rounded-lg text-[#234b3c] transition-colors hover:bg-[#f0eee8] sm:inline-flex">
+              <UserRound className="size-[18px]" />
+            </Link>
+          ) }
+            <div className="mt-2 flex justify-end border-t border-slate-100 pt-4">
+              <AuthUserPage />
+            </div>
         </div>
       </div>
     </header>

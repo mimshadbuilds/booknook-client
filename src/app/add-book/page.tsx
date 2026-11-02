@@ -11,11 +11,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { authClient } from "@/lib/auth-client";
 
-const categories = [ "Fiction", "Science", "History", "Kids", "Others" ];
+const categories = [ "Fiction", "Science", "History", "Romance", "Adventure", "Kids", "Others" ];
 
 const AddBookPage = () => {
     const router = useRouter();
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [category, setCategory] = useState("");
@@ -30,12 +33,14 @@ const AddBookPage = () => {
         const data = {
             ...Object.fromEntries(formData.entries()),
             copies: Number(formData.get("copies")),
+            addedByName: user?.name ?? null,
+            addedByEmail: user?.email ?? null,
         };
 
         try {
             setIsSubmitting(true);
 
-            const res = await fetch("http://localhost:8000/add-book", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/add-book`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -325,6 +330,47 @@ const AddBookPage = () => {
                                         value={copies}
                                     />
                                 </div>
+                                <div className="rounded-xl bg-[#ebe9e2] p-5">
+                            <div className="mb-4 flex items-center justify-between">
+                                <h3 className="text-sm font-medium text-[#252d29]">
+                                    Contributor Record
+                                </h3>
+
+                                <span className="rounded-full bg-white px-3 py-1 text-xs text-[#68736c]">
+                                    Locked to Current Session
+                                </span>
+                            </div>
+
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                <div>
+                                    <label className="mb-2 block text-sm text-[#68736c]">
+                                        Logged-in Contributor
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={user?.name ?? ""}
+                                        readOnly
+                                        className="h-11 w-full rounded-lg border border-[#e0ded6] bg-white px-3 text-sm text-[#252d29] outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="mb-2 block text-sm text-[#68736c]">
+                                        Contact Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        value={user?.email ?? ""}
+                                        readOnly
+                                        className="h-11 w-full rounded-lg border border-[#e0ded6] bg-white px-3 text-sm text-[#252d29] outline-none"
+                                    />
+                                </div>
+                            </div>
+
+                            <p className="mt-3 text-xs leading-5 text-[#68736c]">
+                                Your contributor information is taken from your logged-in account.
+                            </p>
+                        </div>
                             </div>
                         </section>
                         <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
