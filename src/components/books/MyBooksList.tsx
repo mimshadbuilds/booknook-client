@@ -1,19 +1,9 @@
-
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    BookOpen,
-    BookPlus,
-    CalendarDays,
-    ExternalLink,
-    Library,
-    Plus,
-    Search,
-    SlidersHorizontal,
-} from "lucide-react";
+import { BookOpen, BookPlus, CalendarDays, ExternalLink, Library, Plus, Search, SlidersHorizontal } from "lucide-react";
 import EditBookDialog from "@/components/books/EditBookDialog";
 import DeleteBookDialog from "@/components/books/DeleteBookDialog";
 import type { IBook } from "@/app/my-books/page";
@@ -40,37 +30,32 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
     const [category, setCategory] = useState("All Categories");
     const [sortBy, setSortBy] = useState("newest");
 
-    const categories = [...new Set(books.map((book) => book.category))];
+    const categories = [...new Set(books.map(book => book.category))];
     const totalCopies = books.reduce((total, book) => total + book.copies, 0);
-    const availableBooks = books.filter((book) => book.copies > 0).length;
+    const availableBooks = books.filter(book => book.copies > 0).length;
 
     let filteredBooks = [...books];
 
     if (search.trim()) {
         const searchTerm = search.toLowerCase();
-        filteredBooks = filteredBooks.filter(
-            (book) =>
-                book.title.toLowerCase().includes(searchTerm) ||
-                book.author.toLowerCase().includes(searchTerm),
+        filteredBooks = filteredBooks.filter(book =>
+            book.title.toLowerCase().includes(searchTerm) ||
+            book.author.toLowerCase().includes(searchTerm),
         );
     }
 
     if (category !== "All Categories") {
-        filteredBooks = filteredBooks.filter((book) => book.category === category);
+        filteredBooks = filteredBooks.filter(book => book.category === category);
     }
 
     if (sortBy === "newest") {
-        filteredBooks.sort(
-            (a, b) =>
-                new Date(b.createdAt ?? 0).getTime() -
-                new Date(a.createdAt ?? 0).getTime(),
-        );
+        filteredBooks.sort((a, b) =>
+            new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime(),
+    );
     } else if (sortBy === "oldest") {
-        filteredBooks.sort(
-            (a, b) =>
-                new Date(a.createdAt ?? 0).getTime() -
-                new Date(b.createdAt ?? 0).getTime(),
-        );
+        filteredBooks.sort((a, b) =>
+            new Date(a.createdAt ?? 0).getTime() - new Date(b.createdAt ?? 0).getTime(),
+    );
     } else if (sortBy === "title-asc") {
         filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortBy === "title-desc") {
@@ -106,10 +91,8 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                             Manage the books you&apos;ve shared with the BookNook community.
                         </p>
                     </div>
-                    <Link
-                        href="/add-book"
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#234b3c] px-5 text-sm font-semibold text-white transition hover:bg-[#1b3b2f]"
-                    >
+                    <Link href="/add-book"
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#234b3c] px-5 text-sm font-semibold text-white transition hover:bg-[#1b3b2f]">
                         <Plus className="size-4" />
                         Add a Book
                     </Link>
@@ -184,8 +167,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                     <select
                         value={category}
                         onChange={(event) => setCategory(event.target.value)}
-                        className="h-11 rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] px-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]"
-                    >
+                        className="h-11 rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] px-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]">
                         <option value="All Categories">All Categories</option>
                         {categories.map((item) => (
                             <option key={item} value={item}>
@@ -198,8 +180,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                         <select
                             value={sortBy}
                             onChange={(event) => setSortBy(event.target.value)}
-                            className="h-11 w-full rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] pl-10 pr-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]"
-                        >
+                            className="h-11 w-full rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] pl-10 pr-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]">
                             <option value="newest">Recently Added</option>
                             <option value="oldest">Oldest Added</option>
                             <option value="title-asc">Title: A to Z</option>
@@ -226,10 +207,8 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                             <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-[#68736c]">
                                 You haven&apos;t added any books yet. Share your first book with the BookNook community.
                             </p>
-                            <Link
-                                href="/add-book"
-                                className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-[#234b3c] px-4 text-sm font-semibold text-white hover:bg-[#1b3b2f]"
-                            >
+                            <Link href="/add-book"
+                                className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-[#234b3c] px-4 text-sm font-semibold text-white hover:bg-[#1b3b2f]">
                                 <BookPlus className="size-4" />
                                 Add Your First Book
                             </Link>
@@ -269,15 +248,11 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                             };
 
                             return (
-                                <article
-                                    key={book._id}
-                                    className={`grid grid-cols-1 gap-4 border-t border-[#eee9e0] px-5 py-5 ${desktopGrid} xl:items-center xl:gap-3`}
-                                >
+                                <article key={book._id}
+                                    className={`grid grid-cols-1 gap-4 border-t border-[#eee9e0] px-5 py-5 ${desktopGrid} xl:items-center xl:gap-3`}>
                                     <div className="flex min-w-0 items-center gap-4">
-                                        <Link
-                                            href={`/books/${book._id}`}
-                                            className="relative h-[112px] w-[72px] shrink-0 overflow-hidden rounded-md border border-[#e5e0d8] bg-[#f0eee8]"
-                                        >
+                                        <Link href={`/books/${book._id}`}
+                                            className="relative h-[112px] w-[72px] shrink-0 overflow-hidden rounded-md border border-[#e5e0d8] bg-[#f0eee8]">
                                             <Image
                                                 src={book.bookImage}
                                                 alt={`Cover of ${book.title}`}
@@ -328,8 +303,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                                 book.copies > 0
                                                     ? "bg-[#e8f2e9] text-[#234b3c]"
                                                     : "bg-[#f7e5dc] text-[#9b4d32]"
-                                            }`}
-                                        >
+                                            }`}>
                                             <span className="size-1.5 rounded-full bg-current" />
                                             {book.copies > 0 ? "Available" : "Unavailable"}
                                         </span>
@@ -358,8 +332,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                             href={`/books/${book._id}`}
                                             aria-label={`View details for ${book.title}`}
                                             title="View details"
-                                            className="grid size-8 shrink-0 place-items-center rounded-md text-[#525f58] transition hover:bg-[#e8ede9] hover:text-[#234b3c]"
-                                        >
+                                            className="grid size-8 shrink-0 place-items-center rounded-md text-[#525f58] transition hover:bg-[#e8ede9] hover:text-[#234b3c]">
                                             <ExternalLink className="size-4" />
                                         </Link>
                                     </div>

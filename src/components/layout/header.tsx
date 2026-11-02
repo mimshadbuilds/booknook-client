@@ -60,7 +60,7 @@ export function Header() {
               <UserRound className="size-[18px]" />
             </Link>
           ) }
-            <div className="mt-2 flex justify-end border-t border-slate-100 pt-4">
+            <div className="flex justify-end">
               <AuthUserPage />
             </div>
         </div>

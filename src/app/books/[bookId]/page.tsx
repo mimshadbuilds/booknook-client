@@ -5,6 +5,7 @@ import { ArrowLeft, BookOpen, BookOpenCheck, CalendarDays, CheckCircle2, Clock3,
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import BorrowBookDialog from "@/components/books/BorrowBookDialog";
 
 interface IBook {
     _id: string;
@@ -255,12 +256,7 @@ const BookDetailsPage = async({ params} : { params: Promise<{ bookId: string }> 
                                 </div>
                             </div>
                             <div className="mt-5 flex items-center gap-3">
-                                <Button
-                                    disabled={!isAvailable}
-                                    className="h-12 flex-1 rounded-lg bg-[#234b3c] text-sm font-semibold text-white hover:bg-[#193b2f] disabled:opacity-50">
-                                    <BookOpen className="mr-2 size-4" />
-                                    Borrow This Book
-                                </Button>
+                                <BorrowBookDialog book={bookDetails} />
 
                                 <Button
                                     variant="outline"
