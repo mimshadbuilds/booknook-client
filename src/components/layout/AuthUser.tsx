@@ -12,7 +12,7 @@ const AuthUserPage = () => {
     const router = useRouter();
 
     const authLinks = [
-    { label: "Login", href: "/login" },
+    { label: "Login", href: "/signin" },
     { label: "Sign Up", href: "/signup" },
     ]
 

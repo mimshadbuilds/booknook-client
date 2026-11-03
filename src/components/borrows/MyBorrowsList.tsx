@@ -117,7 +117,7 @@ const MyBorrowsList = ({ borrows: initBorrows }: MyBorrowsListProps) => {
                 <div className="mb-7">
                     <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a918b]">
                         <span className="size-1.5 rounded-full bg-[#c97959]" />
-                        User Circulation • Borrowing Record
+                        Member Circulation • Borrowing Record
                     </div>
 
                     <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
