@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Pencil, Save, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const categories = ["Fiction", "Science", "History", "Romance", "Adventure", "Kids", "Others"];
+const categories = [ "Fiction", "Science", "History", "Psychology", "Romance", "Adventure", "Programming", "Kids", "Others" ];
 
 const EditBookDialog = ({ book }: { book: IBooks }) => {
     const router = useRouter()

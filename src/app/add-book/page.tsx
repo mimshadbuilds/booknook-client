@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { authClient } from "@/lib/auth-client";
 
-const categories = [ "Fiction", "Science", "History", "Romance", "Adventure", "Kids", "Others" ];
+const categories = [ "Fiction", "Science", "History", "Psychology", "Romance", "Adventure", "Programming", "Kids", "Others" ];
 
 const AddBookPage = () => {
     const router = useRouter();

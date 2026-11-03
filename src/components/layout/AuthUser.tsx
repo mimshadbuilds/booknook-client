@@ -23,7 +23,7 @@ const AuthUserPage = () => {
         const { error } = await authClient.signOut();
 
         if (error) return;
-        router.push("/login");
+        router.push("/signin");
         router.refresh();
 };
     if(isPending) return null;

@@ -1,30 +1,15 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import {
-    BookOpen,
-    CalendarDays,
-    CheckCircle2,
-    Clock,
-    HandHeart,
-    LockKeyhole,
-} from "lucide-react";
+import { BookOpen, CalendarDays, CheckCircle2, Clock, HandHeart, LockKeyhole } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 interface BorrowBookDialogProps {
     book: {
@@ -40,13 +25,14 @@ interface BorrowBookDialogProps {
 const BorrowBookDialog = ({ book }: BorrowBookDialogProps) => {
     const router = useRouter();
     const { data: session, isPending } = authClient.useSession();
+
     const [open, setOpen] = useState(false);
     const [pledged, setPledged] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const user = session?.user;
-    const borrowDate = new Date();
-    const returnDate = new Date(borrowDate);
+
+    const returnDate = new Date();
     returnDate.setDate(returnDate.getDate() + 21);
 
     const formatDate = (date: Date) =>
@@ -59,7 +45,7 @@ const BorrowBookDialog = ({ book }: BorrowBookDialogProps) => {
     const handleBorrow = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        if (!user?.name || !user?.email) {
+        if (!user?.id) {
             toast.error("Please sign in to borrow this book.");
             return;
         }
@@ -74,28 +60,27 @@ const BorrowBookDialog = ({ book }: BorrowBookDialogProps) => {
             return;
         }
 
-        try {
-            setIsSubmitting(true);
+    try {
+        setIsSubmitting(true);
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/borrows`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        bookId: book._id,
-                        userId: user.id,
-                    }),
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/borrows`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-            );
+                body: JSON.stringify({
+                    bookId: book._id,
+                    userId: user.id,
+                }),
+            },
+        );
 
             const result = await res.json();
 
             if (!res.ok) {
-                throw new Error(
-                    result.message || "Unable to borrow this book.",
-                );
-            }
+                throw new Error(result.message || "Unable to borrow this book.",
+            );
+        }
 
             toast.success("Book borrowed successfully.");
             setOpen(false);
@@ -140,7 +125,7 @@ const BorrowBookDialog = ({ book }: BorrowBookDialogProps) => {
                         <div className="relative h-[104px] w-[70px] shrink-0 overflow-hidden rounded-md bg-[#f0eee8]">
                             <Image
                                 src={book.bookImage}
-                                alt={`Cover of ${book.title}`}
+                                alt='Book Cover'
                                 fill
                                 sizes="70px"
                                 className="object-cover"

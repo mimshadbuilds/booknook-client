@@ -10,7 +10,7 @@ const links = [
   { label: "All Books", href: "/books" },
   { label: "Add Book", href: "/add-book" },
   { label: "My Books", href: "/my-books" },
-  { label: "My Borrows", href: "/my-borrows" },
+  { label: "My Borrows", href: "/borrows" },
 ];
 
 export function Header() {

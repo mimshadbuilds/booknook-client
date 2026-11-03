@@ -20,7 +20,7 @@ export const config = {
     matcher: [
     "/profile",
     "/my-books",
-    "/my-borrows",
+    "/borrows/path",
     "/add-books",
     "/books/:id",
 ],

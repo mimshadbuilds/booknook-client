@@ -4,7 +4,7 @@ import { getBooks } from "@/lib/books-api";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, BookOpenCheck,ChevronDown, LoaderCircle, RotateCcw, Search, Users, X } from "lucide-react";
+import { ArrowRight, BookOpen, BookOpenCheck, LoaderCircle, RotateCcw, Search, Users, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ interface IBook {
     createdAt?: string;
 }
 
-const categories = [ "All Categories", "Fiction", "Science","History", "Kids", "Others" ];
+const categories = ["Fiction", "Science", "History", "Romance", "Adventure", "Kids", "Others"];
 
 type SortOption = "recent" | "title-asc" | "title-desc";
 
