@@ -2,6 +2,11 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import MyBooksList from "@/components/books/MyBooksList";
 
+export const metadata = {
+    title: "My Books | BookNook",
+    description: "Manage the books you have shared with the BookNook community.",
+};
+
 export interface IBook {
     _id: string;
     title: string;

@@ -2,6 +2,11 @@ import MyBorrowsList from '@/components/borrows/MyBorrowsList';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 
+export const metadata = {
+    title: "My Borrows | BookNook",
+    description: "View and manage the books you have borrowed from the BookNook community.",
+};
+
 export interface IBorrow {
     _id: string;
     bookId: string;

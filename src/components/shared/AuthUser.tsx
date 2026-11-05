@@ -17,9 +17,6 @@ const AuthUserPage = () => {
     { label: "Sign Up", href: "/signup" },
     ]
 
-    const linkClass =
-        "text-[13px] font-medium transition-colors hover:text-[#234b3c] dark:hover:text-[#dce8df]"
-
     const handleSignOut = async () => {
         const { error } = await authClient.signOut();
 
@@ -36,7 +33,11 @@ const AuthUserPage = () => {
                     <Link
                         key={link.href}
                         href={link.href}
-                        className={`text-slate-800 dark:text-[#dce8df] ${linkClass}`}>
+                        className={`inline-flex items-center justify-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors ${
+                            link.href === "/signup"
+                                ? "bg-[#234b3c] text-white hover:bg-[#1b3b2f] dark:bg-[#dce8df] dark:text-[#17251f] dark:hover:bg-[#c6d6c9]"
+                                : "text-[#234b3c] hover:bg-[#eeece5] dark:text-[#dce8df] dark:hover:bg-[#26382e]"
+                        }`}>
                         {link.label}
                     </Link>
                 ))}

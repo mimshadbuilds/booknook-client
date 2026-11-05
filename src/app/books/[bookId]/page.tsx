@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import BorrowBookDialog from "@/components/books/BorrowBookDialog";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import type { Metadata } from "next";
+
 interface IBook {
     _id: string;
     title: string;
@@ -19,17 +21,10 @@ interface IBook {
     createdAt: string;
 }
 
-const BookDetailsPage = async({ params } : {params: Promise<{ bookId: string }>}) => {
-    const { bookId } = await params;
-
-        const session = await auth.api.getSession({
-            headers: await headers(),
-        });
-    
-        const user = session?.user;
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}`, { 
-        cache: "no-store" });
+async function getBookDetails(bookId: string): Promise<IBook> {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}`, {
+        cache: "no-store",
+    });
 
     if (res.status === 404) {
         notFound();
@@ -39,7 +34,38 @@ const BookDetailsPage = async({ params } : {params: Promise<{ bookId: string }>}
         throw new Error("Failed to fetch book details.");
     }
 
-    const bookDetails: IBook = await res.json();
+    return res.json();
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ bookId: string }>;
+}): Promise<Metadata> {
+    const { bookId } = await params;
+    const book = await getBookDetails(bookId);
+    const description = book.description.trim();
+
+    return {
+        title: `${book.title} | BookNook`,
+        description: description
+            ? description.length > 160
+                ? `${description.slice(0, 157).trimEnd()}...`
+                : description
+            : `Explore ${book.title} by ${book.author} at BookNook.`,
+    };
+}
+
+const BookDetailsPage = async({ params } : {params: Promise<{ bookId: string }>}) => {
+    const { bookId } = await params;
+
+        const session = await auth.api.getSession({
+            headers: await headers(),
+        });
+    
+        const user = session?.user;
+
+    const bookDetails = await getBookDetails(bookId);
     const isAvailable = bookDetails.copies > 0;
     
     const addedDate = bookDetails.createdAt 

@@ -7,6 +7,11 @@ import { HeroSlider } from "@/components/homepage/heroSlider";
 import { HowItWorks } from "@/components/homepage/howItWorks";
 import { CommunityPage } from "@/components/homepage/communityBanner";
 
+export const metadata = {
+    title: "Home | BookNook",
+    description: "Discover, borrow, and share books with your neighborhood community at BookNook.",
+};
+
 export default async function HomePage() {
     const books = await getHomeBooks();
 
