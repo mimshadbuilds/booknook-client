@@ -21,9 +21,19 @@ interface IBook {
     createdAt: string;
 }
 
-async function getBookDetails(bookId: string): Promise<IBook> {
+export async function getBookDetails(bookId: string): Promise<IBook> {
+
+    const jwtToken = await auth.api.getToken({
+        headers: await headers()
+    })
+    
+    const token = jwtToken?.token;
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/books/${bookId}`, {
         cache: "no-store",
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
     });
 
     if (res.status === 404) {
@@ -36,6 +46,7 @@ async function getBookDetails(bookId: string): Promise<IBook> {
 
     return res.json();
 }
+
 
 export async function generateMetadata({
     params,
@@ -58,11 +69,11 @@ export async function generateMetadata({
 
 const BookDetailsPage = async({ params } : {params: Promise<{ bookId: string }>}) => {
     const { bookId } = await params;
-
-        const session = await auth.api.getSession({
-            headers: await headers(),
-        });
     
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
         const user = session?.user;
 
     const bookDetails = await getBookDetails(bookId);
