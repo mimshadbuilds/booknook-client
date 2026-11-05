@@ -15,7 +15,7 @@ const slides = [
         title: "Every book has a story. Every reader has a place.",
         description:
             "Discover new stories, share the books you love, and find your next favorite read at BookNook.",
-        image: "./images/slide-2.avif",
+        image: "/Images/slide-2.avif",
         position: "object-center",
     },
     {
@@ -23,7 +23,7 @@ const slides = [
         title: "A little curiosity can take you anywhere.",
         description:
             "Explore a growing collection of books across genres, ideas, and worlds.",
-        image: "./images/slide-1.avif",
+        image: "/Images/slide-1.avif",
         position: "object-center",
     },
     {
@@ -31,7 +31,7 @@ const slides = [
         title: "Good books are even better when shared.",
         description:
             "Add a book to the community shelf and help another reader find their next adventure.",
-        image: "./images/slide-3.avif",
+        image: "/Images/slide-3.avif",
         position: "object-center",
     },
 ];
