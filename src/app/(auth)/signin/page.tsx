@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -26,7 +25,6 @@ export default function SignInPage() {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-
         setIsSubmitting(true);
 
         const { data, error } = await authClient.signIn.email({
@@ -61,27 +59,27 @@ export default function SignInPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#F7F5EF] px-4 py-6 sm:px-6 lg:py-10">
+        <main className="min-h-screen bg-[#F7F5EF] dark:bg-[#17251f] px-4 py-6 sm:px-6 lg:py-10">
             <div className="mx-auto grid max-w-7xl items-start gap-5 lg:grid-cols-[0.82fr_1.18fr]">
-                <section className="flex h-full flex-col rounded-xl bg-[#F0EFE8] p-6 sm:p-8">
+                <section className="flex h-full flex-col rounded-xl bg-[#F0EFE8] dark:bg-[#26382e] p-6 sm:p-8">
                     <div>
                         <Link href="/"
-                            className="inline-flex items-center gap-2 text-2xl font-semibold text-[#234B3C]">
+                            className="inline-flex items-center gap-2 text-2xl font-semibold text-[#234B3C] dark:text-[#dce8df]">
                             <BookOpen size={26} />
                             BookNook
                         </Link>
 
                         <div className="mt-10">
-                            <span className="inline-flex items-center gap-2 rounded-full bg-[#DCE8DF] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#234B3C]">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-[#DCE8DF] dark:bg-[#314b3b] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#234B3C] dark:text-[#dce8df]">
                                 <BookOpen size={12} />
                                 Community fellowship
                             </span>
 
-                            <h1 className="mt-4 max-w-sm font-serif text-3xl leading-tight text-[#234B3C] sm:text-4xl">
+                            <h1 className="mt-4 max-w-sm font-serif text-3xl leading-tight text-[#234B3C] dark:text-[#dce8df] sm:text-4xl">
                                 Welcome back to your reading community.
                             </h1>
 
-                            <p className="mt-3 max-w-sm font-serif text-sm leading-relaxed text-[#525F58]">
+                            <p className="mt-3 max-w-sm font-serif text-sm leading-relaxed text-[#525F58] dark:text-[#aab8ae]">
                                 Your next chapter starts here. Reconnect with
                                 your neighborhood library and the stories you love.
                             </p>
@@ -89,45 +87,45 @@ export default function SignInPage() {
                     </div>
 
                     <div className="mt-7 space-y-3">
-                        <div className="flex gap-3 rounded-lg bg-white p-4">
-                            <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white">
+                        <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
+                            <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white dark:bg-[#314b3b]">
                                 <BookOpen size={19} />
                             </div>
                             <div>
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Your Reading Shelf
                                 </h3>
-                                <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                                <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                     Pick up where you left off and discover
                                     books waiting for you.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-3 rounded-lg bg-white p-4">
+                        <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
                             <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#85452D] text-white">
                                 <UserRound size={19} />
                             </div>
                             <div>
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Your Community
                                 </h3>
-                                <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                                <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                     Stay connected with fellow readers and
                                     your local book-sharing network.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-3 rounded-lg bg-white p-4">
-                            <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white">
+                        <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
+                            <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white dark:bg-[#314b3b]">
                                 <Library size={19} />
                             </div>
                             <div>
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Your Borrowing Activity
                                 </h3>
-                                <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                                <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                     Keep track of your borrowed books and
                                     manage your reading activity.
                                 </p>
@@ -136,19 +134,19 @@ export default function SignInPage() {
                     </div>
 
                     <div className="mt-auto pt-7">
-                        <div className="rounded-lg bg-[#E4E2DA] p-5">
-                            <p className="font-serif text-base italic leading-relaxed text-[#252D29]">
+                        <div className="rounded-lg bg-[#E4E2DA] dark:bg-[#202f27] p-5">
+                            <p className="font-serif text-base italic leading-relaxed text-[#252D29] dark:text-[#f0f2ed]">
                                 “A book is a gift you can open again and again.”
                             </p>
                             <div className="mt-4 flex items-center gap-3">
-                                <div className="grid size-9 place-items-center rounded-full bg-[#234B3C] text-white">
+                                <div className="grid size-9 place-items-center rounded-full bg-[#234B3C] text-white dark:bg-[#314b3b]">
                                     <BookOpen size={17} />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-semibold text-[#234B3C]">
+                                    <p className="text-xs font-semibold text-[#234B3C] dark:text-[#dce8df]">
                                         BookNook
                                     </p>
-                                    <p className="text-[10px] text-[#68736C]">
+                                    <p className="text-[10px] text-[#68736C] dark:text-[#aab8ae]">
                                         A community of readers
                                     </p>
                                 </div>
@@ -158,15 +156,15 @@ export default function SignInPage() {
                 </section>
 
                 <div className="space-y-3">
-                    <section className="rounded-xl bg-white p-6 shadow-sm sm:p-8">
+                    <section className="rounded-xl bg-white dark:bg-[#202f27] p-6 shadow-sm sm:p-8">
                         <div className="mb-8">
-                            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#85452D]">
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#85452D] dark:text-[#e5a184]">
                                 Member access
                             </p>
-                            <h2 className="mt-1 font-serif text-2xl text-[#234B3C] sm:text-3xl">
+                            <h2 className="mt-1 font-serif text-2xl text-[#234B3C] dark:text-[#dce8df] sm:text-3xl">
                                 Welcome back
                             </h2>
-                            <p className="mt-2 max-w-lg text-xs leading-relaxed text-[#68736C]">
+                            <p className="mt-2 max-w-lg text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                 Sign in to access your library card, manage
                                 your borrowed books, and continue exploring.
                             </p>
@@ -177,16 +175,16 @@ export default function SignInPage() {
                                 <div className="flex items-center justify-between gap-2">
                                     <label
                                         htmlFor="email"
-                                        className="text-xs font-medium text-[#252D29]">
-                                        Email Address <span className="text-[#85452D]">*</span>
+                                        className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]">
+                                        Email Address <span className="text-[#85452D] dark:text-[#e5a184]">*</span>
                                     </label>
-                                    <span className="hidden text-[9px] text-[#68736C] sm:block">
+                                    <span className="hidden text-[9px] text-[#68736C] dark:text-[#aab8ae] sm:block">
                                         Your registered email
                                     </span>
                                 </div>
 
                                 <div className="relative">
-                                    <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C]" />
+                                    <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C] dark:text-[#aab8ae]" />
                                     <Input
                                         id="email"
                                         name="email"
@@ -194,7 +192,7 @@ export default function SignInPage() {
                                         placeholder="you@example.com"
                                         autoComplete="email"
                                         required
-                                        className="h-11 rounded-lg border-[#E5E0D8] pl-10 text-sm shadow-none"
+                                        className="h-11 rounded-lg border-[#E5E0D8] dark:border-[#3b5044] pl-10 text-sm shadow-none"
                                     />
                                 </div>
                             </div>
@@ -203,19 +201,19 @@ export default function SignInPage() {
                                 <div className="flex items-center justify-between gap-2">
                                     <label
                                         htmlFor="password"
-                                        className="text-xs font-medium text-[#252D29]"
+                                        className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]"
                                     >
-                                        Password <span className="text-[#85452D]">*</span>
+                                        Password <span className="text-[#85452D] dark:text-[#e5a184]">*</span>
                                     </label>
                                     <Link
                                         href="/forgot-password"
-                                        className="text-[10px] font-medium text-[#234B3C] hover:underline">
+                                        className="text-[10px] font-medium text-[#234B3C] dark:text-[#dce8df] hover:underline">
                                         Forgot password?
                                     </Link>
                                 </div>
 
                                 <div className="relative">
-                                    <LockKeyhole className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C]" />
+                                    <LockKeyhole className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C] dark:text-[#aab8ae]" />
                                     <Input
                                         id="password"
                                         name="password"
@@ -223,7 +221,7 @@ export default function SignInPage() {
                                         placeholder="Enter your password"
                                         autoComplete="current-password"
                                         required
-                                        className="h-11 rounded-lg border-[#E5E0D8] pl-10 text-sm shadow-none"
+                                        className="h-11 rounded-lg border-[#E5E0D8] dark:border-[#3b5044] pl-10 text-sm shadow-none"
                                     />
                                 </div>
                             </div>
@@ -231,7 +229,7 @@ export default function SignInPage() {
                             <Button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="h-11 w-full rounded-md bg-[#234B3C] text-xs font-medium text-white hover:bg-[#193B2E]">
+                                className="h-11 w-full rounded-md bg-[#234B3C] text-xs font-medium text-white hover:bg-[#193B2E] dark:bg-[#dce8df] dark:text-[#17251f] dark:hover:bg-[#c6d6c9]">
                                 <BookOpen className="mr-2 size-4" />
                                 {isSubmitting ? "Signing in..." : "Sign In to BookNook"}
                                 {!isSubmitting && <ArrowRight className="ml-2 size-4" />}
@@ -240,7 +238,7 @@ export default function SignInPage() {
 
                         <div className="my-5 flex items-center gap-3">
                             <Separator className="flex-1" />
-                            <span className="text-[9px] font-medium uppercase text-[#68736C]">
+                            <span className="text-[9px] font-medium uppercase text-[#68736C] dark:text-[#aab8ae]">
                                 Or sign in with
                             </span>
                             <Separator className="flex-1" />
@@ -250,7 +248,7 @@ export default function SignInPage() {
                             type="button"
                             variant="outline"
                             onClick={handleGoogleSignIn}
-                            className="h-11 w-full rounded-md border-0 bg-[#EAE8E1] text-xs font-medium text-[#252D29] hover:bg-[#E1DFD7]"
+                            className="h-11 w-full rounded-md border-0 bg-[#EAE8E1] dark:bg-[#26382e] text-xs font-medium text-[#252D29] dark:text-[#f0f2ed] hover:bg-[#E1DFD7] dark:hover:bg-[#314b3b]"
                         >
                             <svg viewBox="0 0 48 48" className="size-5" aria-hidden="true">
                                 <path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.9 6.1-15Z" />
@@ -261,11 +259,11 @@ export default function SignInPage() {
                             Continue with Google
                         </Button>
 
-                        <p className="mt-6 text-center text-xs text-[#68736C]">
+                        <p className="mt-6 text-center text-xs text-[#68736C] dark:text-[#aab8ae]">
                             New to BookNook?{" "}
                             <Link
                                 href="/signup"
-                                className="font-semibold text-[#234B3C] hover:underline"
+                                className="font-semibold text-[#234B3C] dark:text-[#dce8df] hover:underline"
                             >
                                 Create a library account →
                             </Link>
@@ -280,12 +278,12 @@ export default function SignInPage() {
                         ].map((item) => (
                             <div
                                 key={item.title}
-                                className="flex flex-col items-center justify-center gap-1 rounded-md bg-[#F0EFE8] px-2 py-3 text-center"
+                                className="flex flex-col items-center justify-center gap-1 rounded-md bg-[#F0EFE8] dark:bg-[#26382e] px-2 py-3 text-center"
                             >
-                                <span className="text-sm text-[#234B3C]">
+                                <span className="text-sm text-[#234B3C] dark:text-[#dce8df]">
                                     {item.icon}
                                 </span>
-                                <span className="text-[9px] font-medium text-[#525F58]">
+                                <span className="text-[9px] font-medium text-[#525F58] dark:text-[#aab8ae]">
                                     {item.title}
                                 </span>
                             </div>

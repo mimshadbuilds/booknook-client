@@ -1,6 +1,7 @@
 'use client'
+
 import { FormEvent, useState } from 'react';
-import { IBooks } from './BooksCard';
+import { IBooks } from '../shared/BooksCard';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -38,8 +39,6 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
             body: JSON.stringify(updatedData)
         });
 
-        const result = await res.json();
-
         if(res.ok){
             toast.success("Book updated successfully!");
             setIsOpen(false);
@@ -54,18 +53,18 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
             <DialogTrigger render={
                     <Button type="button"
                         variant="outline"
-                        className="h-9 rounded-lg border-[#d1ddd3] px-3 text-sm text-[#234b3c] hover:bg-[#e8ede9]">
+                        className="h-9 rounded-lg border-[#d1ddd3] px-3 text-sm text-[#234b3c] hover:bg-[#e8ede9] dark:border-[#48604f] dark:text-[#dce8df] dark:hover:bg-[#314b3b]">
                         <Pencil className="size-4" />
                         Edit
                     </Button>
                 } />
 
-            <DialogContent className="max-h-[90vh] overflow-y-auto rounded-2xl border-[#e5e0d8] bg-[#fbf9f3] sm:max-w-xl">
+            <DialogContent className="max-h-[90vh] overflow-y-auto rounded-2xl border-[#e5e0d8] bg-[#fbf9f3] dark:border-[#34443b] dark:bg-[#202f27] sm:max-w-xl">
                 <DialogHeader>
-                    <DialogTitle className="font-[Literata] text-2xl text-[#252d29]">
+                    <DialogTitle className="font-[Literata] text-2xl text-[#252d29] dark:text-[#f0f2ed]">
                         Edit Book
                     </DialogTitle>
-                    <DialogDescription className="text-[#68736c]">
+                    <DialogDescription className="text-[#68736c] dark:text-[#aab8ae]">
                         Update the book information below.
                     </DialogDescription>
                 </DialogHeader>
@@ -80,7 +79,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             name="title"
                             defaultValue={book.title}
                             required
-                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15"
+                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20"
                         />
                     </div>
 
@@ -93,7 +92,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             name="author"
                             defaultValue={book.author}
                             required
-                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15"
+                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20"
                         />
                     </div>
 
@@ -106,7 +105,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             name="category"
                             defaultValue={book.category}
                             required
-                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15">
+                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20">
                             {categories.map((category) => (
                                 <option key={category} value={category}>
                                     {category}
@@ -125,7 +124,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             type="url"
                             defaultValue={book.image}
                             required
-                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15"
+                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20"
                         />
                     </div>
 
@@ -141,7 +140,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             step="1"
                             defaultValue={book.copies}
                             required
-                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15"
+                            className="h-11 w-full rounded-lg border border-[#d5cebe] bg-white px-3 text-sm outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20"
                         />
                     </div>
 
@@ -157,7 +156,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             // defaultValue={book.description}
                             required
                             rows={5}
-                            className="w-full resize-y rounded-lg border border-[#d5cebe] bg-white px-3 py-2.5 text-sm leading-6 outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15"
+                            className="w-full resize-y rounded-lg border border-[#d5cebe] bg-white px-3 py-2.5 text-sm leading-6 outline-none focus:border-[#234b3c] focus:ring-2 focus:ring-[#234b3c]/15 dark:border-[#3b5044] dark:bg-[#26382e] dark:text-[#f0f2ed] dark:focus:border-[#dce8df] dark:focus:ring-[#dce8df]/20"
                         />
                     </div>
 
@@ -167,7 +166,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                             variant="outline"
                             disabled={isSubmitting}
                             onClick={() => setIsOpen(false)}
-                            className="h-11 rounded-lg border-[#e5e0d8] px-5">
+                            className="h-11 rounded-lg border-[#e5e0d8] px-5 dark:border-[#34443b] dark:hover:bg-[#26382e] dark:hover:text-[#dce8df]">
                             <X className="size-4" />
                             Cancel
                         </Button>
@@ -175,7 +174,7 @@ const EditBookDialog = ({ book }: { book: IBooks }) => {
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="h-11 rounded-lg bg-[#234b3c] px-5 text-white hover:bg-[#1b3b2f]">
+                            className="h-11 rounded-lg bg-[#234b3c] px-5 text-white hover:bg-[#1b3b2f] dark:bg-[#dce8df] dark:text-[#17251f] dark:hover:bg-[#c6d6c9]">
                             <Save className="size-4" />
                             {isSubmitting ? "Saving..." : "Save Changes"}
                         </Button>

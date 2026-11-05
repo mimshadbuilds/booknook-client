@@ -31,7 +31,6 @@ export default function SignUpPage() {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-
         setIsSubmitting(false)
 
             const { data, error } = await authClient.signUp.email({
@@ -53,73 +52,74 @@ export default function SignUpPage() {
         }
 
     }
-        const handleGoogleSignUp = async() => {
+
+    const handleGoogleSignUp = async() => {
         const { error } = await authClient.signIn.social({
             provider: "google",
             callbackURL: "/",
         });
 
         if (error) {
-            toast.error(error.message || "Google sign-up failed.");
+            toast.error(error.message || "Google sign-up failed. Please try later");
         }
     }
     
 
 return (
-    <main className="min-h-screen bg-[#F7F5EF] px-4 py-6 sm:px-6 lg:py-10">
+    <main className="min-h-screen bg-[#F7F5EF] dark:bg-[#17251f] px-4 py-6 sm:px-6 lg:py-10">
         <div className="mx-auto grid max-w-7xl items-start gap-5 lg:grid-cols-[0.82fr_1.18fr]">
-            <section className="flex h-full flex-col rounded-xl bg-[#F0EFE8] p-6 sm:p-8">
+            <section className="flex h-full flex-col rounded-xl bg-[#F0EFE8] dark:bg-[#26382e] p-6 sm:p-8">
                 <div>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[#DCE8DF] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#234B3C]">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#DCE8DF] dark:bg-[#314b3b] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#234B3C] dark:text-[#dce8df]">
                         <BookOpen size={12} />
                         Community fellowship
                     </span>
 
-                    <h1 className="mt-4 max-w-sm font-serif text-3xl leading-tight text-[#234B3C] sm:text-4xl">
+                    <h1 className="mt-4 max-w-sm font-serif text-3xl leading-tight text-[#234B3C] dark:text-[#dce8df] sm:text-4xl">
                         Become a BookNook Membar
                     </h1>
 
-                    <p className="mt-3 max-w-sm font-serif text-sm leading-relaxed text-[#525F58]">
+                    <p className="mt-3 max-w-sm font-serif text-sm leading-relaxed text-[#525F58] dark:text-[#aab8ae]">
                         A trust-based community lending network where
                         neighborly stewardship keeps literature circulating freely.
                     </p>
                 </div>
 
                 <div className="mt-7 space-y-3">
-                    <div className="flex gap-3 rounded-lg bg-white p-4">
-                        <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white">
+                    <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
+                        <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white dark:bg-[#314b3b]">
                             <BookOpen size={19} />
                         </div>
                         <div>
                             <div className="flex flex-wrap items-center gap-2">
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Borrow Freely
                                 </h3>
-                                <span className="rounded-full bg-[#DCE8DF] px-2 py-0.5 text-[10px] text-[#234B3C]">
+                                <span className="rounded-full bg-[#DCE8DF] dark:bg-[#314b3b] px-2 py-0.5 text-[10px] text-[#234B3C] dark:text-[#dce8df]">
                                     21 Days
                                 </span>
                             </div>
-                            <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                            <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                 Generous 21-day loan periods with effortless extensions.
                                 No punitive fines, simply gentle, neighborly reminders.
                             </p>
                         </div>
                     </div>
 
-                    <div className="flex gap-3 rounded-lg bg-white p-4">
+                    <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
                         <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#85452D] text-white">
                             <UserRound size={19} />
                         </div>
                         <div>
                             <div className="flex flex-wrap items-center gap-2">
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Contribute & Preserve
                                 </h3>
-                                <span className="rounded-full bg-[#F8DDD0] px-2 py-0.5 text-[10px] text-[#85452D]">
+                                <span className="rounded-full bg-[#F8DDD0] dark:bg-[#3a2b24] px-2 py-0.5 text-[10px] text-[#85452D] dark:text-[#e5a184]">
                                     Stewardship
                                 </span>
                             </div>
-                            <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                            <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                 Donate extra copies from your shelves and retain
                                 lifetime ownership records. Trace who reads your
                                 personal book over the seasons.
@@ -127,20 +127,20 @@ return (
                         </div>
                     </div>
 
-                    <div className="flex gap-3 rounded-lg bg-white p-4">
-                        <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white">
+                    <div className="flex gap-3 rounded-lg bg-white dark:bg-[#202f27] p-4">
+                        <div className="grid size-10 shrink-0 place-items-center rounded-md bg-[#234B3C] text-white dark:bg-[#314b3b]">
                             <MapIcon size={19} />
                         </div>
                         <div>
                             <div className="flex flex-wrap items-center gap-2">
-                                <h3 className="text-sm font-medium text-[#252D29]">
+                                <h3 className="text-sm font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                     Neighborhood Kiosks
                                 </h3>
-                                <span className="rounded-full bg-[#DCE8DF] px-2 py-0.5 text-[10px] text-[#234B3C]">
+                                <span className="rounded-full bg-[#DCE8DF] dark:bg-[#314b3b] px-2 py-0.5 text-[10px] text-[#234B3C] dark:text-[#dce8df]">
                                     Local reading
                                 </span>
                             </div>
-                            <p className="mt-1 text-xs leading-relaxed text-[#68736C]">
+                            <p className="mt-1 text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                 Pick up and drop off books at local reading corners,
                                 front-porch cabinets, and community book spaces.
                             </p>
@@ -149,20 +149,20 @@ return (
                 </div>
 
                 <div className="mt-5 pt-7">
-                    <div className="rounded-lg bg-[#E4E2DA] p-5">
-                        <p className="font-serif text-base italic leading-relaxed text-[#252D29]">
+                    <div className="rounded-lg bg-[#E4E2DA] dark:bg-[#202f27] p-5">
+                        <p className="font-serif text-base italic leading-relaxed text-[#252D29] dark:text-[#f0f2ed]">
                             “The simplest, warmest way to share good books
                             with the people living right on your block.”
                         </p>
                         <div className="mt-4 flex items-center gap-3">
-                            <div className="grid size-9 place-items-center rounded-full bg-[#234B3C] text-white">
+                            <div className="grid size-9 place-items-center rounded-full bg-[#234B3C] text-white dark:bg-[#314b3b]">
                                 <UserRound size={17} />
                             </div>
                             <div>
-                                <p className="text-xs font-semibold text-[#234B3C]">
+                                <p className="text-xs font-semibold text-[#234B3C] dark:text-[#dce8df]">
                                     Mimshad
                                 </p>
-                                <p className="text-[10px] text-[#68736C]">
+                                <p className="text-[10px] text-[#68736C] dark:text-[#aab8ae]">
                                     BookNook Member
                                 </p>
                             </div>
@@ -172,22 +172,22 @@ return (
             </section>
 
             <div className="space-y-3">
-                <section className="rounded-xl bg-white p-6 shadow-sm sm:p-8">
+                <section className="rounded-xl bg-white dark:bg-[#202f27] p-6 shadow-sm sm:p-8">
                     <div className="mb-7 flex items-start justify-between gap-3">
                         <div>
-                            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#85452D]">
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#85452D] dark:text-[#e5a184]">
                                 New member entry
                             </p>
-                            <h2 className="mt-1 font-serif text-2xl text-[#234B3C] sm:text-3xl">
+                            <h2 className="mt-1 font-serif text-2xl text-[#234B3C] dark:text-[#dce8df] sm:text-3xl">
                                 Create your account
                             </h2>
-                            <p className="mt-2 max-w-lg text-xs leading-relaxed text-[#68736C]">
+                            <p className="mt-2 max-w-lg text-xs leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                                 Join your local BookNook collective in under a minute.
                                 Create your account and become part of the reading community.
                             </p>
                         </div>
 
-                        <span className="hidden shrink-0 rounded-sm bg-[#F0EFE8] px-2 py-1 text-[9px] font-medium text-[#525F58] sm:inline-flex">
+                        <span className="hidden shrink-0 rounded-sm bg-[#F0EFE8] dark:bg-[#26382e] px-2 py-1 text-[9px] font-medium text-[#525F58] dark:text-[#aab8ae] sm:inline-flex">
                             <BookOpen size={11} className="mr-1" />
                             Member card ID: auto-issue
                         </span>
@@ -196,37 +196,37 @@ return (
                     <Form onSubmit={handleSubmit} className="space-y-5">
                         <div className="space-y-2">
                             <div className="flex items-center justify-between gap-2">
-                                <label htmlFor="name" className="text-xs font-medium text-[#252D29]">
-                                    Full Name <span className="text-[#85452D]">*</span>
+                                <label htmlFor="name" className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]">
+                                    Full Name <span className="text-[#85452D] dark:text-[#e5a184]">*</span>
                                 </label>
-                                <span className="hidden text-[9px] text-[#68736C] sm:block">
+                                <span className="hidden text-[9px] text-[#68736C] dark:text-[#aab8ae] sm:block">
                                     As you would like it on your bookplate
                                 </span>
                             </div>
                             <div className="relative">
-                                <UserRound className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C]" />
+                                <UserRound className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C] dark:text-[#aab8ae]" />
                                 <Input
                                     id="name"
                                     name="name"
                                     placeholder="Enter your full name"
                                     autoComplete="name"
                                     required
-                                    className="h-11 rounded-lg border-[#E5E0D8] pl-10 text-sm shadow-none"
+                                    className="h-11 rounded-lg border-[#E5E0D8] dark:border-[#3b5044] pl-10 text-sm shadow-none"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <div className="flex items-center justify-between gap-2">
-                                <label htmlFor="email" className="text-xs font-medium text-[#252D29]">
-                                    Email Address <span className="text-[#85452D]">*</span>
+                                <label htmlFor="email" className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]">
+                                    Email Address <span className="text-[#85452D] dark:text-[#e5a184]">*</span>
                                 </label>
-                                <span className="hidden text-[9px] text-[#68736C] sm:block">
+                                <span className="hidden text-[9px] text-[#68736C] dark:text-[#aab8ae] sm:block">
                                     For due reminders only
                                 </span>
                             </div>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C]" />
+                                <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C] dark:text-[#aab8ae]" />
                                 <Input
                                     id="email"
                                     name="email"
@@ -234,28 +234,28 @@ return (
                                     placeholder="you@example.com"
                                     autoComplete="email"
                                     required
-                                    className="h-11 rounded-lg border-[#E5E0D8] pl-10 text-sm shadow-none"
+                                    className="h-11 rounded-lg border-[#E5E0D8] dark:border-[#3b5044] pl-10 text-sm shadow-none"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <div className="flex items-center justify-between gap-2">
-                                <label htmlFor="image" className="text-xs font-medium text-[#252D29]">
-                                    Profile Photo URL <span className="font-normal text-[#68736C]">(Optional)</span>
+                                <label htmlFor="image" className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]">
+                                    Profile Photo URL <span className="font-normal text-[#68736C] dark:text-[#aab8ae]">(Optional)</span>
                                 </label>
-                                <span className="hidden text-[9px] text-[#234B3C] sm:block">
+                                <span className="hidden text-[9px] text-[#234B3C] dark:text-[#dce8df] sm:block">
                                     ✦ Use sample avatar
                                 </span>
                             </div>
                             <div className="relative">
-                                <ImageIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C]" />
+                                <ImageIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#68736C] dark:text-[#aab8ae]" />
                                 <Input
                                     id="image"
                                     name="image"
                                     type="url"
                                     placeholder="https://images.example.com/patron.jpg"
-                                    className="h-11 rounded-lg border-[#E5E0D8] pl-10 text-sm shadow-none"
+                                    className="h-11 rounded-lg border-[#E5E0D8] dark:border-[#3b5044] pl-10 text-sm shadow-none"
                                 />
                             </div>
                         </div>
@@ -278,33 +278,33 @@ return (
                                 return null;
                             }}>
                             <div className="flex items-center justify-between gap-2">
-                                <Label className="text-xs font-medium text-[#252D29]">
+                                <Label className="text-xs font-medium text-[#252D29] dark:text-[#f0f2ed]">
                                      Password *
                                 </Label>
-                                <span className="text-[9px] text-[#68736C]">
+                                <span className="text-[9px] text-[#68736C] dark:text-[#aab8ae]">
                                     Security check
                                 </span>
                             </div>
                             <HeroInput
                                 placeholder="Create a password"
                                 autoComplete="new-password"
-                                className="h-11 rounded-lg border border-[#E5E0D8] px-3 text-sm shadow-none"
+                                className="h-11 rounded-lg border border-[#E5E0D8] dark:border-[#3b5044] px-3 text-sm shadow-none"
                             />
                             <FieldError />
                         </TextField>
 
-                        <div className="rounded-md bg-[#F3F2EC] p-3">
-                            <p className="mb-2 text-[9px] font-medium uppercase tracking-wide text-[#525F58]">
+                        <div className="rounded-md bg-[#F3F2EC] dark:bg-[#26382e] p-3">
+                            <p className="mb-2 text-[9px] font-medium uppercase tracking-wide text-[#525F58] dark:text-[#aab8ae]">
                                 Circulation security requirements:
                             </p>
-                            <div className="flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-[#525F58]">
+                            <div className="flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-[#525F58] dark:text-[#aab8ae]">
                                 <span>○ 6+ characters</span>
                                 <span>○ 1+ uppercase</span>
                                 <span>○ 1+ lowercase</span>
                             </div>
                         </div>
 
-                        <label className="flex items-start gap-2 text-[10px] leading-relaxed text-[#68736C]">
+                        <label className="flex items-start gap-2 text-[10px] leading-relaxed text-[#68736C] dark:text-[#aab8ae]">
                             <input
                                 type="checkbox"
                                 required
@@ -312,7 +312,7 @@ return (
                             />
                             <span>
                                 By registering, you agree to BookNook&apos;s{" "}
-                                <Link href="/community-guidelines" className="font-medium text-[#234B3C] underline">
+                                <Link href="/community-guidelines" className="font-medium text-[#234B3C] dark:text-[#dce8df] underline">
                                     Community Guidelines
                                 </Link>{" "}
                                 and circulation guidelines.
@@ -322,7 +322,7 @@ return (
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="h-11 w-full rounded-md bg-[#234B3C] text-xs font-medium text-white hover:bg-[#193B2E]">
+                            className="h-11 w-full rounded-md bg-[#234B3C] text-xs font-medium text-white hover:bg-[#193B2E] dark:bg-[#dce8df] dark:text-[#17251f] dark:hover:bg-[#c6d6c9]">
                             <BookOpen className="mr-2 size-4" />
                             {isSubmitting ? "Creating account..." : "Create Library Account"}
                         </Button>
@@ -330,7 +330,7 @@ return (
 
                     <div className="my-4 flex items-center gap-3">
                         <Separator className="flex-1" />
-                        <span className="text-[9px] font-medium uppercase text-[#68736C]">
+                        <span className="text-[9px] font-medium uppercase text-[#68736C] dark:text-[#aab8ae]">
                             Or sign up with
                         </span>
                         <Separator className="flex-1" />
@@ -340,14 +340,14 @@ return (
                         type="button"
                         variant="outline"
                         onClick={handleGoogleSignUp}
-                        className="h-11 w-full rounded-md border-0 bg-[#EAE8E1] text-xs font-medium text-[#252D29] hover:bg-[#E1DFD7]">
+                        className="h-11 w-full rounded-md border-0 bg-[#EAE8E1] dark:bg-[#26382e] text-xs font-medium text-[#252D29] dark:text-[#f0f2ed] hover:bg-[#E1DFD7] dark:hover:bg-[#314b3b]">
                         Continue with Google
                     </Button>
 
-                    <p className="mt-5 text-center text-xs text-[#68736C]">
+                    <p className="mt-5 text-center text-xs text-[#68736C] dark:text-[#aab8ae]">
                         Already have a account?{" "}
                         <Link href="/sign-in"
-                            className="font-semibold text-[#234B3C] hover:underline">
+                            className="font-semibold text-[#234B3C] dark:text-[#dce8df] hover:underline">
                             Log in →
                         </Link>
                     </p>
@@ -361,9 +361,9 @@ return (
                     ].map((item) => (
                         <div
                             key={item.title}
-                            className="flex flex-col items-center justify-center gap-1 rounded-md bg-[#F0EFE8] px-2 py-3 text-center">
-                            <span className="text-sm text-[#234B3C]">{item.icon}</span>
-                            <span className="text-[9px] font-medium text-[#525F58]">
+                            className="flex flex-col items-center justify-center gap-1 rounded-md bg-[#F0EFE8] dark:bg-[#26382e] px-2 py-3 text-center">
+                            <span className="text-sm text-[#234B3C] dark:text-[#dce8df]">{item.icon}</span>
+                            <span className="text-[9px] font-medium text-[#525F58] dark:text-[#aab8ae]">
                                 {item.title}
                             </span>
                         </div>

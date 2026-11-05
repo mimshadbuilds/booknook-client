@@ -76,23 +76,23 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
         "xl:grid-cols-[minmax(0,1.65fr)_minmax(92px,0.65fr)_minmax(140px,1fr)_minmax(165px,1.15fr)_minmax(150px,0.95fr)]";
 
     return (
-        <main className="min-h-screen bg-[#fbf9f3]">
-            <section className="border-b border-[#e5e0d8] bg-[#f5f3ed]">
+        <main className="min-h-screen bg-[#fbf9f3] dark:bg-[#17251f]">
+            <section className="border-b border-[#e5e0d8] dark:border-[#34443b] bg-[#f5f3ed] dark:bg-[#202f27]">
                 <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-5 px-4 py-10 sm:px-6 md:flex-row md:items-center lg:px-8 lg:py-14">
                     <div>
-                        <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#68736c]">
-                            <Library className="size-4 text-[#234b3c]" />
+                        <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#68736c] dark:text-[#aab8ae]">
+                            <Library className="size-4 text-[#234b3c] dark:text-[#dce8df]" />
                             Your Library Collection
                         </div>
-                        <h1 className="font-[Literata] text-3xl font-semibold tracking-tight text-[#252d29] sm:text-4xl">
+                        <h1 className="font-[Literata] text-3xl font-semibold tracking-tight text-[#252d29] dark:text-[#f0f2ed] sm:text-4xl">
                             My Books
                         </h1>
-                        <p className="mt-2 max-w-xl text-sm leading-6 text-[#68736c]">
+                        <p className="mt-2 max-w-xl text-sm leading-6 text-[#68736c] dark:text-[#aab8ae]">
                             Manage the books you&apos;ve shared with the BookNook community.
                         </p>
                     </div>
                     <Link href="/add-book"
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#234b3c] px-5 text-sm font-semibold text-white transition hover:bg-[#1b3b2f]">
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#234b3c] dark:bg-[#dce8df] px-5 text-sm font-semibold text-white dark:text-[#17251f] transition hover:bg-[#1b3b2f] dark:hover:bg-[#c6d6c9]">
                         <Plus className="size-4" />
                         Add a Book
                     </Link>
@@ -101,39 +101,39 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
 
             <section className="mx-auto max-w-[1320px] px-4 py-9 sm:px-6 lg:px-8 lg:py-12">
                 <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    <div className="rounded-xl border border-[#e5e0d8] bg-white p-5">
+                    <div className="rounded-xl border border-[#e5e0d8] dark:border-[#34443b] bg-white dark:bg-[#202f27] p-5">
                         <div className="flex items-center justify-between">
-                            <p className="text-sm text-[#68736c]">Titles Donated</p>
-                            <BookOpen className="size-5 text-[#234b3c]" />
+                            <p className="text-sm text-[#68736c] dark:text-[#aab8ae]">Titles Donated</p>
+                            <BookOpen className="size-5 text-[#234b3c] dark:text-[#dce8df]" />
                         </div>
-                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29]">
+                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                             {books.length}
                         </p>
-                        <p className="mt-1 text-xs text-[#68736c]">
+                        <p className="mt-1 text-xs text-[#68736c] dark:text-[#aab8ae]">
                             Books in your collection
                         </p>
                     </div>
-                    <div className="rounded-xl border border-[#e5e0d8] bg-white p-5">
+                    <div className="rounded-xl border border-[#e5e0d8] dark:border-[#34443b] bg-white dark:bg-[#202f27] p-5">
                         <div className="flex items-center justify-between">
-                            <p className="text-sm text-[#68736c]">Total Copies</p>
-                            <Library className="size-5 text-[#234b3c]" />
+                            <p className="text-sm text-[#68736c] dark:text-[#aab8ae]">Total Copies</p>
+                            <Library className="size-5 text-[#234b3c] dark:text-[#dce8df]" />
                         </div>
-                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29]">
+                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                             {totalCopies}
                         </p>
-                        <p className="mt-1 text-xs text-[#68736c]">
+                        <p className="mt-1 text-xs text-[#68736c] dark:text-[#aab8ae]">
                             Copies listed across your books
                         </p>
                     </div>
-                    <div className="rounded-xl border border-[#e5e0d8] bg-white p-5">
+                    <div className="rounded-xl border border-[#e5e0d8] dark:border-[#34443b] bg-white dark:bg-[#202f27] p-5">
                         <div className="flex items-center justify-between">
-                            <p className="text-sm text-[#68736c]">Available Titles</p>
-                            <BookPlus className="size-5 text-[#234b3c]" />
+                            <p className="text-sm text-[#68736c] dark:text-[#aab8ae]">Available Titles</p>
+                            <BookPlus className="size-5 text-[#234b3c] dark:text-[#dce8df]" />
                         </div>
-                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29]">
+                        <p className="mt-3 font-[Literata] text-3xl font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                             {availableBooks}
                         </p>
-                        <p className="mt-1 text-xs text-[#68736c]">
+                        <p className="mt-1 text-xs text-[#68736c] dark:text-[#aab8ae]">
                             Titles with copies available
                         </p>
                     </div>
@@ -141,33 +141,33 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
 
                 <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
                     <div>
-                        <h2 className="font-[Literata] text-xl font-semibold text-[#252d29]">
+                        <h2 className="font-[Literata] text-xl font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                             Your Contributions
                         </h2>
-                        <p className="mt-1 text-sm text-[#68736c]">
+                        <p className="mt-1 text-sm text-[#68736c] dark:text-[#aab8ae]">
                             Books you&apos;ve added to the community library.
                         </p>
                     </div>
-                    <span className="w-fit rounded-full border border-[#d1ddd3] bg-[#e8ede9] px-3 py-1.5 text-xs font-semibold text-[#234b3c]">
+                    <span className="w-fit rounded-full border border-[#d1ddd3] dark:border-[#48604f] bg-[#e8ede9] dark:bg-[#314b3b] px-3 py-1.5 text-xs font-semibold text-[#234b3c] dark:text-[#dce8df]">
                         {books.length} {books.length === 1 ? "Book" : "Books"}
                     </span>
                 </div>
 
-                <div className="mb-5 grid grid-cols-1 gap-3 rounded-xl border border-[#e5e0d8] bg-white p-3 sm:grid-cols-[1fr_190px_180px] sm:p-4">
+                <div className="mb-5 grid grid-cols-1 gap-3 rounded-xl border border-[#e5e0d8] dark:border-[#34443b] bg-white dark:bg-[#202f27] p-3 sm:grid-cols-[1fr_190px_180px] sm:p-4">
                     <div className="relative">
-                        <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#89928c]" />
+                        <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#89928c] dark:text-[#aab8ae]" />
                         <input
                             type="search"
                             value={search}
                             onChange={(event) => setSearch(event.target.value)}
                             placeholder="Search by title or author..."
-                            className="h-11 w-full rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] pl-10 pr-3 text-sm text-[#252d29] outline-none transition placeholder:text-[#89928c] focus:border-[#234b3c]"
+                            className="h-11 w-full rounded-lg border border-[#e5e0d8] dark:border-[#3b5044] bg-[#fbf9f3] dark:bg-[#17251f] pl-10 pr-3 text-sm text-[#252d29] dark:text-[#f0f2ed] outline-none transition placeholder:text-[#89928c] dark:placeholder:text-[#aab8ae] focus:border-[#234b3c] dark:focus:border-[#dce8df]"
                         />
                     </div>
                     <select
                         value={category}
                         onChange={(event) => setCategory(event.target.value)}
-                        className="h-11 rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] px-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]">
+                        className="h-11 rounded-lg border border-[#e5e0d8] dark:border-[#3b5044] bg-[#fbf9f3] dark:bg-[#17251f] px-3 text-sm text-[#525f58] dark:text-[#aab8ae] outline-none focus:border-[#234b3c] dark:focus:border-[#dce8df]">
                         <option value="All Categories">All Categories</option>
                         {categories.map((item) => (
                             <option key={item} value={item}>
@@ -176,11 +176,11 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                         ))}
                     </select>
                     <div className="relative">
-                        <SlidersHorizontal className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#89928c]" />
+                        <SlidersHorizontal className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#89928c] dark:text-[#aab8ae]" />
                         <select
                             value={sortBy}
                             onChange={(event) => setSortBy(event.target.value)}
-                            className="h-11 w-full rounded-lg border border-[#e5e0d8] bg-[#fbf9f3] pl-10 pr-3 text-sm text-[#525f58] outline-none focus:border-[#234b3c]">
+                            className="h-11 w-full rounded-lg border border-[#e5e0d8] dark:border-[#3b5044] bg-[#fbf9f3] dark:bg-[#17251f] pl-10 pr-3 text-sm text-[#525f58] dark:text-[#aab8ae] outline-none focus:border-[#234b3c] dark:focus:border-[#dce8df]">
                             <option value="newest">Recently Added</option>
                             <option value="oldest">Oldest Added</option>
                             <option value="title-asc">Title: A to Z</option>
@@ -189,8 +189,8 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                     </div>
                 </div>
 
-                <div className="overflow-hidden rounded-xl border border-[#e5e0d8] bg-white">
-                    <div className={`hidden ${desktopGrid} items-center gap-3 bg-[#f5f3ed] px-5 py-3 text-[10px] font-semibold uppercase tracking-wide text-[#68736c] xl:grid`}>
+                <div className="overflow-hidden rounded-xl border border-[#e5e0d8] dark:border-[#34443b] bg-white dark:bg-[#202f27]">
+                    <div className={`hidden ${desktopGrid} items-center gap-3 bg-[#f5f3ed] dark:bg-[#26382e] px-5 py-3 text-[10px] font-semibold uppercase tracking-wide text-[#68736c] dark:text-[#aab8ae] xl:grid`}>
                         <span>Book Details</span>
                         <span>Copies</span>
                         <span>Availability Status</span>
@@ -200,26 +200,26 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
 
                     {books.length === 0 ? (
                         <div className="px-5 py-16 text-center">
-                            <BookOpen className="mx-auto size-8 text-[#234b3c]" />
-                            <h3 className="mt-4 font-[Literata] text-xl font-semibold text-[#252d29]">
+                            <BookOpen className="mx-auto size-8 text-[#234b3c] dark:text-[#dce8df]" />
+                            <h3 className="mt-4 font-[Literata] text-xl font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                                 Your collection is waiting
                             </h3>
-                            <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-[#68736c]">
+                            <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-[#68736c] dark:text-[#aab8ae]">
                                 You haven&apos;t added any books yet. Share your first book with the BookNook community.
                             </p>
                             <Link href="/add-book"
-                                className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-[#234b3c] px-4 text-sm font-semibold text-white hover:bg-[#1b3b2f]">
+                                className="mt-6 inline-flex h-10 items-center gap-2 rounded-lg bg-[#234b3c] dark:bg-[#dce8df] px-4 text-sm font-semibold text-white dark:text-[#17251f] hover:bg-[#1b3b2f] dark:hover:bg-[#c6d6c9]">
                                 <BookPlus className="size-4" />
                                 Add Your First Book
                             </Link>
                         </div>
                     ) : filteredBooks.length === 0 ? (
                         <div className="px-5 py-14 text-center">
-                            <Search className="mx-auto size-7 text-[#89928c]" />
-                            <h3 className="mt-4 font-[Literata] text-lg font-semibold text-[#252d29]">
+                            <Search className="mx-auto size-7 text-[#89928c] dark:text-[#aab8ae]" />
+                            <h3 className="mt-4 font-[Literata] text-lg font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                                 No matching books
                             </h3>
-                            <p className="mt-1 text-sm text-[#68736c]">
+                            <p className="mt-1 text-sm text-[#68736c] dark:text-[#aab8ae]">
                                 Try another search term or category.
                             </p>
                             <button
@@ -229,7 +229,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                     setCategory("All Categories");
                                     setSortBy("newest");
                                 }}
-                                className="mt-4 text-sm font-semibold text-[#234b3c] hover:text-[#c97959]"
+                                className="mt-4 text-sm font-semibold text-[#234b3c] dark:text-[#dce8df] hover:text-[#c97959] dark:hover:text-[#e5a184]"
                             >
                                 Clear filters
                             </button>
@@ -249,10 +249,10 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
 
                             return (
                                 <article key={book._id}
-                                    className={`grid grid-cols-1 gap-4 border-t border-[#eee9e0] px-5 py-5 ${desktopGrid} xl:items-center xl:gap-3`}>
+                                    className={`grid grid-cols-1 gap-4 border-t border-[#eee9e0] dark:border-[#34443b] px-5 py-5 ${desktopGrid} xl:items-center xl:gap-3`}>
                                     <div className="flex min-w-0 items-center gap-4">
                                         <Link href={`/books/${book._id}`}
-                                            className="relative h-[112px] w-[72px] shrink-0 overflow-hidden rounded-md border border-[#e5e0d8] bg-[#f0eee8]">
+                                            className="relative h-[112px] w-[72px] shrink-0 overflow-hidden rounded-md border border-[#e5e0d8] dark:border-[#34443b] bg-[#f0eee8] dark:bg-[#26382e]">
                                             <Image
                                                 src={book.bookImage}
                                                 alt={`Cover of ${book.title}`}
@@ -262,18 +262,18 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                             />
                                         </Link>
                                         <div className="min-w-0">
-                                            <span className="inline-block max-w-full truncate rounded-full bg-[#e8ede9] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#234b3c]">
+                                            <span className="inline-block max-w-full truncate rounded-full bg-[#e8ede9] dark:bg-[#314b3b] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#234b3c] dark:text-[#dce8df]">
                                                 {book.category}
                                             </span>
                                             <Link href={`/books/${book._id}`}>
-                                                <h3 className="mt-2 line-clamp-2 font-[Literata] text-base font-semibold leading-5 text-[#234b3c] hover:text-[#c97959]">
+                                                <h3 className="mt-2 line-clamp-2 font-[Literata] text-base font-semibold leading-5 text-[#234b3c] dark:text-[#dce8df] hover:text-[#c97959] dark:hover:text-[#e5a184]">
                                                     {book.title}
                                                 </h3>
                                             </Link>
-                                            <p className="mt-1 truncate text-xs text-[#68736c]">
+                                            <p className="mt-1 truncate text-xs text-[#68736c] dark:text-[#aab8ae]">
                                                 {book.author}
                                             </p>
-                                            <p className="mt-2 flex items-center gap-1.5 text-[11px] text-[#89928c]">
+                                            <p className="mt-2 flex items-center gap-1.5 text-[11px] text-[#89928c] dark:text-[#aab8ae]">
                                                 <CalendarDays className="size-3.5 shrink-0" />
                                                 <span className="truncate">Added {formatDate(book.createdAt)}</span>
                                             </p>
@@ -281,48 +281,48 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                     </div>
 
                                     <div>
-                                        <p className="mb-1 text-xs text-[#68736c] xl:hidden">
+                                        <p className="mb-1 text-xs text-[#68736c] dark:text-[#aab8ae] xl:hidden">
                                             Copies
                                         </p>
                                         <div className="flex items-center gap-2">
-                                            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-[#e8ede9] font-[Literata] text-lg font-semibold text-[#234b3c]">
+                                            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-[#e8ede9] dark:bg-[#314b3b] font-[Literata] text-lg font-semibold text-[#234b3c] dark:text-[#dce8df]">
                                                 {book.copies}
                                             </span>
-                                            <span className="text-xs text-[#68736c]">
+                                            <span className="text-xs text-[#68736c] dark:text-[#aab8ae]">
                                                 {book.copies === 1 ? "Copy" : "Copies"}
                                             </span>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <p className="mb-1 text-xs text-[#68736c] xl:hidden">
+                                        <p className="mb-1 text-xs text-[#68736c] dark:text-[#aab8ae] xl:hidden">
                                             Availability Status
                                         </p>
                                         <span
                                             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold ${
                                                 book.copies > 0
-                                                    ? "bg-[#e8f2e9] text-[#234b3c]"
-                                                    : "bg-[#f7e5dc] text-[#9b4d32]"
+                                                    ? "bg-[#e8f2e9] text-[#234b3c] dark:bg-[#314b3b] dark:text-[#dce8df]"
+                                                    : "bg-[#f7e5dc] text-[#9b4d32] dark:bg-[#3a2b24] dark:text-[#e5a184]"
                                             }`}>
                                             <span className="size-1.5 rounded-full bg-current" />
                                             {book.copies > 0 ? "Available" : "Unavailable"}
                                         </span>
-                                        <p className="mt-1 text-xs text-[#68736c]">
+                                        <p className="mt-1 text-xs text-[#68736c] dark:text-[#aab8ae]">
                                             {book.copies > 0 ? "Copies on shelf" : "No copies available"}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <p className="mb-1 text-xs text-[#68736c] xl:hidden">
+                                        <p className="mb-1 text-xs text-[#68736c] dark:text-[#aab8ae] xl:hidden">
                                             Community Reads
                                         </p>
-                                        <p className="text-sm font-medium text-[#252d29]">—</p>
-                                        <p className="mt-1 text-xs text-[#68736c]">
+                                        <p className="text-sm font-medium text-[#252d29] dark:text-[#f0f2ed]">—</p>
+                                        <p className="mt-1 text-xs text-[#68736c] dark:text-[#aab8ae]">
                                             No checkout data yet
                                         </p>
                                     </div>
 
-                                    <div className="flex flex-wrap items-center gap-2 border-t border-[#eee9e0] pt-3 xl:flex-nowrap xl:justify-center xl:border-0 xl:pt-0">
+                                    <div className="flex flex-wrap items-center gap-2 border-t border-[#eee9e0] dark:border-[#34443b] pt-3 xl:flex-nowrap xl:justify-center xl:border-0 xl:pt-0">
                                         <EditBookDialog book={editBook} />
                                         <DeleteBookDialog
                                             bookId={book._id}
@@ -332,7 +332,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                                             href={`/books/${book._id}`}
                                             aria-label={`View details for ${book.title}`}
                                             title="View details"
-                                            className="grid size-8 shrink-0 place-items-center rounded-md text-[#525f58] transition hover:bg-[#e8ede9] hover:text-[#234b3c]">
+                                            className="grid size-8 shrink-0 place-items-center rounded-md text-[#525f58] dark:text-[#aab8ae] transition hover:bg-[#e8ede9] dark:hover:bg-[#314b3b] hover:text-[#234b3c] dark:hover:text-[#dce8df]">
                                             <ExternalLink className="size-4" />
                                         </Link>
                                     </div>
@@ -343,7 +343,7 @@ const MyBooksList = ({ books }: MyBooksListProps) => {
                 </div>
 
                 {filteredBooks.length > 0 && (
-                    <p className="mt-4 text-right text-xs text-[#89928c]">
+                    <p className="mt-4 text-right text-xs text-[#89928c] dark:text-[#aab8ae]">
                         Showing {filteredBooks.length} of {books.length} books
                     </p>
                 )}

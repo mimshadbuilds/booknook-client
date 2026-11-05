@@ -48,22 +48,22 @@ const DeleteBookDialog = ({bookId, bookTitle} : {bookId: string; bookTitle: stri
             <AlertDialogTrigger render={
                     <Button type="button"
                         variant="outline"
-                        className="h-9 rounded-lg border-[#f0d5c7] px-3 text-sm text-[#a45535] hover:bg-[#f8ede7] hover:text-[#a45535]">
+                        className="h-9 rounded-lg border-[#f0d5c7] px-3 text-sm text-[#a45535] hover:bg-[#f8ede7] hover:text-[#a45535] dark:border-[#5a3a2e] dark:text-[#e5a184] dark:hover:bg-[#3a2b24] dark:hover:text-[#e5a184]">
                         <Trash2 className="size-4" />
                         Delete
                     </Button>
                 }
             />
 
-            <AlertDialogContent className="rounded-2xl border-[#e5e0d8] bg-[#fbf9f3]">
+            <AlertDialogContent className="rounded-2xl border-[#e5e0d8] bg-[#fbf9f3] dark:border-[#34443b] dark:bg-[#202f27]">
                 <AlertDialogHeader>
-                    <AlertDialogTitle className="font-[Literata] text-xl text-[#252d29]">
+                    <AlertDialogTitle className="font-[Literata] text-xl text-[#252d29] dark:text-[#f0f2ed]">
                         Are you sure?
                     </AlertDialogTitle>
 
-                    <AlertDialogDescription className="text-[#68736c]">
+                    <AlertDialogDescription className="text-[#68736c] dark:text-[#aab8ae]">
                         This will permanently delete{" "}
-                        <span className="font-semibold text-[#252d29]">
+                        <span className="font-semibold text-[#252d29] dark:text-[#f0f2ed]">
                             {bookTitle}
                         </span>{" "}
                         from the library. This action cannot be undone.
@@ -73,7 +73,7 @@ const DeleteBookDialog = ({bookId, bookTitle} : {bookId: string; bookTitle: stri
                 <AlertDialogFooter>
                     <AlertDialogCancel
                         disabled={isDelete}
-                        className="rounded-lg border-[#e5e0d8]">
+                        className="rounded-lg border-[#e5e0d8] dark:border-[#34443b] dark:hover:bg-[#26382e] dark:hover:text-[#dce8df]">
                         Cancel
                     </AlertDialogCancel>
 
